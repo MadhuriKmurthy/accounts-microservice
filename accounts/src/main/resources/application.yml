@@ -1,0 +1,46 @@
+server:
+  port:8080
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: ''
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+  profiles:
+    active:
+      - "qa"
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+build:
+  version: "3.0"
+
+accounts:
+  message: "Welcome to mad"
+  contact:
+    name: "Mad - Dev"
+    email: "mad@mad.com"
+  support:
+    - (566)643-3568
+    - (566)643-3569

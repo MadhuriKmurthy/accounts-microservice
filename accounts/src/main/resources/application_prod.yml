@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to mad accounts - prod app"
+  contact:
+    name: "Mad - CEO"
+    email: "mad@mad.com"
+  support:
+    - (566)643-3568
+    - (566)643-3569
