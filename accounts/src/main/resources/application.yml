@@ -1,6 +1,12 @@
 server:
-  port:8080
+  port: 8080
 spring:
+  application:
+    name: "accounts"
+  profiles:
+    active: "prod"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
   datasource:
     url: jdbc:h2:mem:testdb
     username: sa
@@ -18,13 +24,6 @@ spring:
     properties:
       hibernate:
         format_sql: true
-  config:
-    import:
-      - "application_qa.yml"
-      - "application_prod.yml"
-  profiles:
-    active:
-      - "qa"
 
 springdoc:
   swagger-ui:
@@ -32,15 +31,3 @@ springdoc:
     path: /swagger-ui.html
   api-docs:
     path: /v3/api-docs
-
-build:
-  version: "3.0"
-
-accounts:
-  message: "Welcome to mad"
-  contact:
-    name: "Mad - Dev"
-    email: "mad@mad.com"
-  support:
-    - (566)643-3568
-    - (566)643-3569
